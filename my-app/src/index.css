@@ -13,9 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html,
-body {
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
   height: 100%;
+  margin: 0;
+  min-width: 320px;
 }
 
 a {
@@ -23,37 +28,101 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
-}
+a:hover { color: #535bf2; }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100%;
-}
-
+/* ── Layout ─────────────────────────── */
 .app {
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
+/* Header */
+.app > div:first-child {
+  padding: 2.5rem 1.5rem 0;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+}
+
+.description {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+/* Cards grid */
 .content {
   flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2rem;
-  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Tablet */
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1rem;
+  }
 }
 
+/* Mobile */
+@media (max-width: 480px) {
+  .app > div:first-child {
+    padding: 1.5rem 1rem 0;
+  }
+
+  .content {
+    padding: 1rem;
+    gap: 1rem;
+  }
+}
+
+/* ── Botão de contato ───────────────── */
+.contact-btn {
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: 0.65em 1.8em;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid rgba(100, 108, 255, 0.5);
+  background: rgba(100, 108, 255, 0.12);
+  color: #a5aaff;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.contact-btn:hover {
+  background: rgba(100, 108, 255, 0.25);
+  border-color: #646cff;
+  color: #fff;
+}
+
+.contact-btn a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Footer ─────────────────────────── */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 2rem;
+}
+
+/* ── Global button reset ────────────── */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -65,11 +134,8 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
+button:hover { border-color: #646cff; }
+button:focus, button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
@@ -78,10 +144,8 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  a:hover { color: #747bff; }
+  button { background-color: #f9f9f9; }
+  .description { color: rgba(0,0,0,0.5); }
+  .footer { color: rgba(0,0,0,0.3); }
 }

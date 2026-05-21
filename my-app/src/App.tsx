@@ -10,7 +10,7 @@ import Wklist from './assets/images/wklist.png'
 const App: React.FC = () => (
   <div className="app">
     <div>
-        <h1 className="title" style={{ color: 'orange', fontStyle: 'italic' }}>Welcome to My React App</h1>
+                <h1 className="title" style={{ color: 'orange', fontStyle: 'italic' }}>Bem-vindo ao meu Portifólio</h1>
         <p className="description">This is a simple React application. Here it works like a portfolio website.</p>
     </div>
     <main className="content">

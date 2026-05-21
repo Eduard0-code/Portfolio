@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Browser-saved pages that may include sensitive data
+src/assets/images/Google Gemini.htm
+src/assets/images/Google Gemini_files/
